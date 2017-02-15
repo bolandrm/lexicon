@@ -21,6 +21,7 @@ def BaseProviderParser():
     parser.add_argument("--ttl", type=int, help="specify the record time-to-live")
     parser.add_argument("--priority", help="specify the record priority")
     parser.add_argument("--identifier", help="specify the record for update or delete actions")
+    parser.add_argument('--delegated', help="specify the delegated domain")
     return parser
 
 def MainParser():
@@ -35,7 +36,6 @@ def MainParser():
 
     parser = argparse.ArgumentParser(description='Create, Update, Delete, List DNS entries')
     parser.add_argument('--version', help="show the current version of lexicon", action='version', version='%(prog)s {0}'.format(pkg_resources.get_distribution("dns-lexicon").version))
-    parser.add_argument('--delegated', help="specify the delegated domain")
     subparsers = parser.add_subparsers(dest='provider_name', help='specify the DNS provider to use')
     subparsers.required = True
 
