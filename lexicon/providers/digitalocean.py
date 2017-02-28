@@ -69,7 +69,7 @@ class Provider(BaseProvider):
         if content:
             records = [record for record in records if record['content'].lower() == content.lower()]
 
-        print('list_records: {0}'.format(records))
+        print('list_records: \n```\n{}\n```'.format(json.dumps(records)))
         return records
 
     # Create or update a record.
@@ -94,6 +94,7 @@ class Provider(BaseProvider):
         if not identifier:
             records = self.list_records(type, name, content)
             print(records)
+            print('got length {}'.format(len(records)))
             if len(records) == 1:
                 identifier = records[0]['id']
             else:
