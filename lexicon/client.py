@@ -39,7 +39,9 @@ class Client(object):
             return self.provider.create_record(self.options.get('type'), self.options.get('name'), self.options.get('content'))
 
         elif self.action == 'list':
-            return self.provider.list_records(self.options.get('type'), self.options.get('name'), self.options.get('content'))
+            records = self.provider.list_records(self.options.get('type'), self.options.get('name'), self.options.get('content'))
+            print('list_records_json: \n```\n{}\n```'.format(json.dumps(records)))
+            return records
 
         elif self.action == 'update':
             return self.provider.update_record(self.options.get('identifier'), self.options.get('type'), self.options.get('name'), self.options.get('content'))

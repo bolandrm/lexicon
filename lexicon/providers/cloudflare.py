@@ -65,7 +65,7 @@ class Provider(BaseProvider):
             }
             records.append(processed_record)
 
-        print('list_records: \n```\n{}\n```'.format(json.dumps(records)))
+        print('list_records: {0}'.format(records))
         return records
 
     # Create or update a record.
